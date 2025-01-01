@@ -8,7 +8,7 @@ on:
       - 'lambda/'
 
 jobs:
-  deploy-lambda
+  deploy-lambda:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v2
