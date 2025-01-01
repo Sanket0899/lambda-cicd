@@ -32,5 +32,5 @@ jobs:
       - name: Deploy to AWS lambda  #deploying function to aws lambda
         run: |
           cd lambda
-          zip -r lambda.zip
+          zip -r lambda.zip .
           aws lambda update-function-code --function-name lambda-functioncicd --zip-file fileb://lambda.zip
