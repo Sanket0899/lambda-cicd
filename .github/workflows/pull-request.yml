@@ -24,7 +24,7 @@ jobs:
             
             -   name: Validate Cloudformation
                 run: |
-                    aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yml
+                    aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yaml
             
             -   name: Deploy stack
                 run: |
