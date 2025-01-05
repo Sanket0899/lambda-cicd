@@ -4,6 +4,10 @@ on:
     pull_request:
         paths:
             - 'cloudformation/**'
+        types:
+            - opened
+            - synchronize
+            - closed    
 
 permissions:
     contents: read
@@ -11,6 +15,7 @@ permissions:
 
 jobs:
     validate-cfn:
+        if: ${{ github.event.action != 'closed' }} 
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v2
@@ -45,7 +50,7 @@ jobs:
         
     cleanup-merge:
         runs-on: ubuntu-latest
-        if: ${{ github.event.pull_request.merged == true }}
+        if: ${{ github.event.action == 'closed' && github.event.pull_request.merged == true }} 
         steps:
             -   name: configure AWS credentials        
                 uses: aws-actions/configure-aws-credentials@v1
