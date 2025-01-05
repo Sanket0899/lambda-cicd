@@ -24,12 +24,12 @@ jobs:
             
             -   name: Validate Cloudformation
                 run: |
-                    aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yml
+                    aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yaml
             
             -   name: Deploy stack
                 run: |
                     stack_name="pr-test-stack-${{github.event.pull_request_number}}"
-                    aws cloudformation create-stack --stack-name $stack_name --template-body file://cloudformation/s3-bucket.yml --parameters ParameterKey=Environment,ParameterValue=test
+                    aws cloudformation create-stack --stack-name $stack_name --template-body file://cloudformation/s3-bucket.yaml --parameters ParameterKey=Environment,ParameterValue=test
             
             -   name: Comment on PR
                 uses: actions/github-script@v6
