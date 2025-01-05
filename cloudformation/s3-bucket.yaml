@@ -15,7 +15,7 @@ Resources:
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub '${AWS::StackName}-${Environment}-bucket-snbestfinaltr'
+      BucketName: !Sub '${AWS::StackName}-${Environment}-bucket-snbestfinaltry'
       Tags:
         - Key: Environment
           Value: !Ref Environment
