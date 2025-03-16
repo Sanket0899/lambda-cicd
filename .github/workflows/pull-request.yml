@@ -1,4 +1,4 @@
-name: Validate Cloudformation CICD
+name: Validate Cloudformation CICD on pull request
 
 on:
     pull_request:
